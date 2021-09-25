@@ -50,7 +50,7 @@ export default class User extends React.Component {
     count: 0,
   };
   btnClick = () => {
-    this.setState((state) => ({ count: state.count + 1 }));
+    this.setState((state) => ({ count: ++state.count }));
   };
 
   render() {
@@ -61,6 +61,9 @@ export default class User extends React.Component {
       counter: {
         color: "red",
       },
+      hr:{
+        width:'400px'
+      }
     };
     const { name, age } = this.props;
     const { count } = this.state;
@@ -69,11 +72,14 @@ export default class User extends React.Component {
       <div>
         <h2> My name is {name}</h2>
         <h3> i am {age} years old</h3>
+        <hr style={styles.hr}/>
         <h3 style={styles.counter}> This button was pressed: {count} times</h3>
         <button style={styles.btn} onClick={() => this.btnClick()}>
           CLICK ME
         </button>
+        <hr style={styles.hr}/>
       </div>
     );
   }
 }
+
